@@ -12,4 +12,4 @@ runs:
   image: Dockerfile
   args:
     - ${{ inputs.project_name }}
-    - ${{ inputs.github_tocken }}
+    - ${{ inputs.github_token }}

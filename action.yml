@@ -3,13 +3,13 @@ inputs:
   github_token:
     description: 'Token to push changes'
     required: true
-  project_path:
-    description: 'Project path'
+  project_name:
+    description: 'Project name'
     required: true
     default: 'all'
 runs:
   using: docker
   image: Dockerfile
   args:
-    - ${{ inputs.project_path }}
+    - ${{ inputs.project_name }}
     - ${{ inputs.github_tocken }}

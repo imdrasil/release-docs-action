@@ -1,0 +1,15 @@
+name: 'Release imdrasil project docs'
+inputs:
+  github_token:
+    description: 'Token to push changes'
+    required: true
+  project_path:
+    description: 'Project path'
+    required: true
+    default: 'all'
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.project_path }}
+    - ${{ inputs.github_tocken }}

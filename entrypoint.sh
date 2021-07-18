@@ -5,4 +5,4 @@ chmod 600 /root/.ssh/id_rsa
 git clone git@github.com:/imdrasil/imdrasil.github.io.git
 cd imdrasil.github.io
 bundle install
-bash ./scripts/deploy.sh "$1"
+bash ./scripts/deploy.sh "$1" "$3" "$4"

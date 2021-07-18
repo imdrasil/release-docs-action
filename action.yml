@@ -7,9 +7,17 @@ inputs:
     description: 'Project name'
     required: true
     default: 'all'
+  generate_script:
+    required: false
+    default: "crystal doc"
+  exclude:
+    required: false
+    default: ""
 runs:
   using: docker
   image: Dockerfile
   args:
     - ${{ inputs.project_name }}
     - ${{ inputs.github_token }}
+    - ${{ inputs.generate_script }}
+    - ${{ inputs.exclude }}

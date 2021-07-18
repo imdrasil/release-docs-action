@@ -1,11 +1,16 @@
 FROM ruby:2.3.8
 
-RUN apt-get update && apt-get install expect -y
+RUN apt-get update && \
+    apt-get install expect -y
 
 RUN gem install pry
 
-COPY entrypoint.rb /entrypoint.rb
+RUN mkdir -p /root/.ssh && \
+    chmod 0700 /root/.ssh && \
+    ssh-keyscan github.com > /root/.ssh/known_hosts
 
-COPY add_key.sh /add_key.sh
+RUN curl -fsSL https://crystal-lang.org/install.sh | bash
 
-ENTRYPOINT ["ruby", "/entrypoint.rb"]
+COPY entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["bash", "/entrypoint.sh"]

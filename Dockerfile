@@ -1,4 +1,4 @@
-FROM ruby:2.3.8
+FROM ruby:3.1
 
 RUN apt-get update && \
     apt-get install expect -y
